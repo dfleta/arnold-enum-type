@@ -1,0 +1,13 @@
+# Maven
+target/
+
+# Project
+.classpath
+.project
+
+# VSCode
+.vscode
+
+# Library
+.settings/
+.sts4-cache/
