@@ -1,7 +1,7 @@
 # Maven
 target/
 
-# Project
+# IDE
 .classpath
 .project
 
