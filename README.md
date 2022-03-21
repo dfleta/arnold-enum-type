@@ -24,6 +24,9 @@ Es importante para evitar que os pase lo de Arnold en Desafio Total** cuando sal
 
 https://www.youtube.com/watch?v=86scPKqWFvc
 
+[Arnold al punto de cocción](./src/main/resources/arnold_boiling_plate.png "Arnold se está cociendo")
+
+
 El peso en otro planeta se lo preguntáis a los que han estudiado Física en la universidad o bachiller (call @Arturo @JoanNIcolau y cia) y así no tenéis que programar esta semana. Si no se lo saben de memoria, aplicad este sencilla fórmula:
 
 `Peso_en_Superficie = tu_Masa * Gravedad_en_superficie`
@@ -103,8 +106,12 @@ https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html
 * ¿Y Plutón? ¿Dónde está Plutón?  
 
 Pluto is not a planet! You can't kill the truth, father!
+
 https://www.youtube.com/watch?v=S4E2ZuPCBG0
+
 https://www.youtube.com/watch?v=X46NN3BdvcA
+
+[Pluto is a planet](./src/main/resources/pluto_is_a_planet.png "Pluto is a planet")
 
 ------
 ** Existe una versión mucho más divertida, ingeniosa y edificante de la infame película Desafío Total en el capítulo 4 de la temporada 2 de Rick and Morty, titulado "Total Rickall". Eso sí, tiros y vísceras hay a partes iguales:
