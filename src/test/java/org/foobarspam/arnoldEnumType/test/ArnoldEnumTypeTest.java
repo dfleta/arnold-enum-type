@@ -20,6 +20,7 @@ public class ArnoldEnumTypeTest {
 			planetasIncluidos += 1;
 		}
 		assertThat(planetasIncluidos).isEqualTo(Planeta.values().length);
+		assertThat(planetas).doesNotContainNull();
 	}
 
 	@Test
@@ -28,12 +29,12 @@ public class ArnoldEnumTypeTest {
 		// se comportan como yo espero
 		Planeta planeta = Planeta.MERCURY;
 		assertThat(planeta).isInstanceOf(Planeta.class);
-		assertThat(planeta.ordinal()).isEqualTo(0);
+		assertThat(planeta.ordinal()).isZero();
 		assertThat(planeta.name()).isEqualToIgnoringCase("MERCURY");
 		assertThat(Planeta.valueOf(planeta.name())).isEqualTo(Planeta.MERCURY);
-		assertThat(planeta.compareTo(planeta.MERCURY)).isEqualTo(0);
+		assertThat(planeta.compareTo(Planeta.MERCURY)).isZero();
 		assertThat(planeta.toString()).isEqualToIgnoringCase("MERCURY");
-		assertThat(planeta.equals(planeta.MERCURY)).isEqualTo(true);
+		assertThat(planeta.equals(Planeta.MERCURY)).isTrue();
 		assertThat(Planeta.values()[0]).isEqualTo(planeta);
 	}
 
@@ -53,7 +54,6 @@ public class ArnoldEnumTypeTest {
 	public void PlanetaNamesIteratorTest() {
 		for (Planeta planeta : Planeta.values()) {
 			assertThat(planeta.name()).isIn(planetas);
-			
 		}
 	}
 
@@ -75,6 +75,7 @@ public class ArnoldEnumTypeTest {
 			planetasIncluidos += 1;
 		}
 		assertThat(planetasIncluidos).isEqualTo(4);
+		assertThat(planetas).doesNotContainNull();
 
 		for (Planeta planeta : Planeta.getPlanetasTerrestres()) {
 			assertThat(planeta.name()).isIn(planetasTerrestres);
@@ -94,6 +95,7 @@ public class ArnoldEnumTypeTest {
 			index += 1;
 		}
 		assertThat(planetasIncluidos).isEqualTo(4);
+		assertThat(planetas).doesNotContainNull();
 
 		for (Planeta planeta : Planeta.getGigantesGaseosos()) {
 			assertThat(planeta.name()).isIn(gigantesGaseosos);
