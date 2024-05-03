@@ -33,7 +33,7 @@ $$ Gravedad \ en \ superficie = G \times \frac {Masa \ del \ planeta} {Radio \ d
 
 donde: 
 
-$$ G = 6.67300E-11 $$
+$$ G = 6.67300 \ · e^{-11} \frac {m^3}{kg \ ·s }$$
 
 y 
 
