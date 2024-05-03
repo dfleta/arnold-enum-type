@@ -1,50 +1,47 @@
 Enum Types: Arnold se está cociendo
 ===================================
 
-Fecha límite de entrega: 21 de marzo, en tu GitHub.
+Esta semana vamos a introducir un nuevo concepto de programación, los **tipos enumerados**. Son muy sencillos y no necesitan mucha explicación. Eso sí, son un ejemplo fantástico del **patrón singleton**, y resuelven muchos problemas en la vida real TM.
 
-Esta semana vamos a introducir un nuevo concepto de la programación, los **tipos enumerados**. Son muy sencillos y no necesitan mucha explicación. Eso sí, son un ejemplo fantástico del **patrón singleton**, y resuelven muchos problemas en la vida real TM.
+Recomiendo leer el **capítulo 18 "Enum Types" del Libro _Beginning Java 8 Fundamentals_**. Se explican a través de un par de ejercicios que recomiendo ir codificando en vuestro editor favorito `IntelIJ throws FileNotSupportedException`
 
-Recomiendo leer el **capítulo 18 "Enum Types" del Libro _Beginning Java 8 Fundamentals_ Subrayado**. Están explicados a través de un par de ejercicios que recomiendo ir codificando en vuestro editor favorito `IntelIJ throws FileNotSupportedException`
+Además, vamos a prácticar TDD:
 
-Además, vamos a hacerlo "tipo examen", para ir practicando para el de junio:
- - He incluido los casos test que ha de pasar vuestro código.
- - He incluido el programa principal.
+- He incluido los casos test que ha de pasar vuestro código.
+- He incluido el programa principal.
   
-De esta manera, nos aseguramos que aprendéis todo lo que es necesario saber sobre tipos enumerados, y aprendéis las **_fluent assertions_**, que harán vuestros casos test más optimos. Ojo que el día del examen las usaré.
-
+De esta manera, nos aseguramos que aprendéis todo lo que es necesario saber sobre tipos enumerados, y aprendéis las **_fluent assertions_**, que harán vuestros casos test más optimos.
 
 ## Ejercicio
 
-Se trata de calcular el peso de una persona en los distintos planetas de nuestro Sistema Solar*, al estilo de este sitio web:
+Se trata de calcular el peso de una persona en los distintos planetas de nuestro Sistema Solar[^1], al estilo de este sitio web:
 
 http://www.traducimos.cl/planet/
 
-Es importante para evitar que os pase lo de Arnold en Desafio Total** cuando salió a dar un paseíto por la superficie marciana, estando de cuarentena como estábamos en marzo de 2019:
+Es importante evitar que os suceda lo de Arnold en Desafio Total[^2] cuando salió a dar un paseíto por la superficie marciana, estando de cuarentena como estábamos en marzo de 2019:
 
-https://www.youtube.com/watch?v=86scPKqWFvc
-
-![Arnold al punto de cocción](./src/main/resources/arnold_boiling_plate.png "Arnold se está cociendo")
+[![vídeo Arnold al punto de cocción](./assets/arnold_boiling_plate.png "video Arnold se está cociendo")](https://www.youtube.com/watch?v=86scPKqWFvc)
 
 
-El peso en otro planeta se lo preguntáis a los que han estudiado Física en la universidad o bachiller (call @Arturo @JoanNIcolau y cia) y así no tenéis que programar esta semana. Si no se lo saben de memoria, aplicad este sencilla fórmula:
+El peso en otro planeta se lo preguntáis a vuestros compañeros que han estudiado Física en la universidad o bachiller (call @Arturo [@JoanNicolau](https://github.com/nicolaujoan) y cia). Si no se lo saben de memoria, aplicad este sencilla fórmula:
 
-`Peso_en_Superficie = tu_Masa * Gravedad_en_superficie`
+$$ Peso \ en \ Superficie = tu \ Masa \times Gravedad \ en \ superficie $$
 
-donde 
+donde:
 
-`Gravedad_en_superficie = G * Masa_del_planeta / Radio_del_planeta_al_cuadrado`
+$$ Gravedad \ en \ superficie = G \times \frac {Masa \ del \ planeta} {Radio \ del \ planeta \ al \ cuadrado} $$
 
 donde: 
 
-`G = 6.67300E-11`
+$$ G = 6.67300E-11 $$
 
 y 
 
-`tu_masa = tu_peso_en_la_Tierra / gravedad_superficial_tierra`
+$$ tu \ masa = \frac{tu \ peso \ en \ la \ Tierra} {gravedad \ superficial \ Tierra} $$
 
-Los valores de masa y radio de cada planeta (en `Kg` y `m` respectivamente) son:
-```
+Los valores de masa y radio de cada planeta (en $Kg$ y $m$ respectivamente) son:
+
+```java
 MERCURY (3.303e+23, 2.4397e6),     
 VENUS   (4.869e+24, 6.0518e6),     
 EARTH   (5.976e+24, 6.37814e6),     
@@ -55,9 +52,9 @@ URANUS  (8.686e+25, 2.5559e7),
 NEPTUNE (1.024e+26, 2.4746e7);      
 ```
 
-La salida del programa en consola es esta (sirve también como caso test), donde 175 es tu peso en la Tierra:
+Si completas la función `main` para recoger argumentos desde línea de comandos, la salida del programa en consola podría ser esta, donde `175` es tu peso en la Tierra:
 
-`tu_masa = tu_peso_en_la_Tierra / gravedad_superficial_tierra;`
+$$ tu \ masa = \frac{tu \ peso \ en \ la \ Tierra}{gravedad \ superficial \ tierra} $$
 
 ```sh
 $ java Planet 175 
@@ -73,47 +70,42 @@ Your weight on NEPTUNE is 199.207413
 
 ## Casos test - AssertJ Fluent Assertions
 
-Aquí tienes los casos test que ha de satisfacer tu código:
+Estos son los casos test que ha de satisfacer tu código: [/src/test/java/org/foobarspam/arnoldEnumType/test/ArnoldEnumTypeTest.java](./src/test/java/org/foobarspam/arnoldEnumType/test/ArnoldEnumTypeTest.java "casos test")
 
-https://github.com/dfleta/arnold-enum-type/blob/main/src/test/java/org/foobarspam/arnoldEnumType/test/ArnoldEnumTypeTest.java 
+Utilízalos para practicar TDD y que te guién en el diseño del código. 
 
-Para utilizar estos casos test, has de incluir en el `POM.xml` del proyecto Maven o en el fichero `build.gradle` una dependencia adecuada a la librería de **AssertJ**. Búscala en el repo de Maven:
+Para utilizar estos casos test, has de incluir en el `POM.xml` del proyecto Maven o en el fichero `build.gradle` una dependencia adecuada a la librería de **AssertJ**. Búscala en el [repo de Maven](https://mvnrepository.com/ "maven repository"):
 
-https://mvnrepository.com/
+```xml
+	<dependency>
+    	<groupId>org.assertj</groupId>
+    	<artifactId>assertj-core</artifactId>
+    	<version>[3.22.0,)</version>
+    	<scope>test</scope>
+	</dependency>
+```
 
-¿Cómo funcionan las Fluent Assertions?:
+¿Cómo funcionan las Fluent Assertions?: 
 
-http://joel-costigliola.github.io/assertj/assertj-core-quick-start.html
+[AssertJ - fluent assertions java library](https://assertj.github.io/doc/)
 
 
 ## Script principal - main
 
-Programa la lógica para que, además de los casos test, satisfaga este script principal del programa:
+Programa la lógica para que, además de los casos test, satisfaga el script principal del programa: [ArnoldMain.java](./src/main/java/org/foobarspam/arnoldEnumType/main/ArnoldMain.java "main App")
 
-https://github.com/dfleta/arnold-enum-type/blob/main/src/main/java/org/foobarspam/arnoldEnumType/main/ArnoldMain.java
 
 ### Solución
 
-Resuelto por mi:
+Resuelto por mi: [Planeta.java](./src/main/java/org/foobarspam/arnoldEnumType/logica/Planeta.java "Planeta.java")
 
-https://github.com/dfleta/Java/tree/master/arnoldEnumTypeMaven
+Resuelto por Oracle: [Enum Types, the Java Tutorials](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html "Enum type Java Tutorials")
 
-Resuelto por Oracle:
-
-https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html
 
 ------
-* ¿Y Plutón? ¿Dónde está Plutón?  
+[^1]: ¿Y Plutón? ¿Dónde está Plutón?  
 
-Pluto is not a planet! You can't kill the truth, father!
-
-https://www.youtube.com/watch?v=S4E2ZuPCBG0
-
-https://www.youtube.com/watch?v=X46NN3BdvcA
-
-![Pluto is a planet](./src/main/resources/pluto_is_a_planet.png "Pluto is a planet")
+[![_Pluto is not a planet! You can't kill the truth, father!_](./assets/pluto_is_a_planet.png)](https://www.youtube.com/watch?v=aIVOIaYxaTo "video Rick & Morty Pluno is not a planet")
 
 ------
-** Existe una versión mucho más divertida, ingeniosa y edificante de la infame película Desafío Total en el capítulo 4 de la temporada 2 de Rick and Morty, titulado "Total Rickall". Eso sí, tiros y vísceras hay a partes iguales:
-
-https://www.youtube.com/watch?v=bnLqIJxNiAk
+[^2]: Existe una versión mucho más divertida, ingeniosa y edificante de la infame película Desafío Total en el capítulo 4 de la temporada 2 de Rick and Morty, titulado "Total Rickall". Eso sí, tiros y vísceras hay a partes iguales.
