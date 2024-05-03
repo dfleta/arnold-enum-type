@@ -72,7 +72,7 @@ Your weight on NEPTUNE is 199.207413
 
 Estos son los casos test que ha de satisfacer tu código: [/src/test/java/org/foobarspam/arnoldEnumType/test/ArnoldEnumTypeTest.java](./src/test/java/org/foobarspam/arnoldEnumType/test/ArnoldEnumTypeTest.java "casos test")
 
-Utilízalos para practicar TDD y que te guién en el diseño del código. 
+Utilízalos para practicar TDD y que te guíen en el diseño del código. 
 
 Para utilizar estos casos test, has de incluir en el `POM.xml` del proyecto Maven o en el fichero `build.gradle` una dependencia adecuada a la librería de **AssertJ**. Búscala en el [repo de Maven](https://mvnrepository.com/ "maven repository"):
 
@@ -89,6 +89,26 @@ Para utilizar estos casos test, has de incluir en el `POM.xml` del proyecto Mave
 
 [AssertJ - fluent assertions java library](https://assertj.github.io/doc/)
 
+## API Enum Type
+
+Estas son las funciones de la API de los tipos enumerados. Asegúrate de que entiendes su comportamiento y el tipo de dato que devuelven.
+
+```java
+	@Test
+	public void PlanetaConstructorTest() {
+		// me aseguro de que los metodos de la api
+		// de los Enum Types se comportan como espero
+		Planeta planeta = Planeta.MERCURY;
+		assertThat(planeta).isInstanceOf(Planeta.class);
+		assertThat(planeta.ordinal()).isZero();
+		assertThat(planeta.name()).isEqualToIgnoringCase("MERCURY");
+		assertThat(Planeta.valueOf(planeta.name())).isEqualTo(Planeta.MERCURY);
+		assertThat(planeta.compareTo(Planeta.MERCURY)).isZero();
+		assertThat(planeta.toString()).isEqualToIgnoringCase("MERCURY");
+		assertThat(planeta.equals(Planeta.MERCURY)).isTrue();
+		assertThat(Planeta.values()[0]).isEqualTo(planeta);
+	}
+```
 
 ## Script principal - main
 
